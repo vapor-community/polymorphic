@@ -21,3 +21,11 @@ for item in array {
 	let int = item.int ?? 0 // Will cast all items to `Int`s
 }
 ```
+
+## Use
+
+Include the following in your package to use Polymorphic.
+
+```swift
+.Package(url: "https://github.com/qutheory/polymorphic.git", majorVersion: 0, minor: 1)
+```
