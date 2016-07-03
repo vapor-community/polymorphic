@@ -27,5 +27,5 @@ for item in array {
 Include the following in your package to use Polymorphic.
 
 ```swift
-.Package(url: "https://github.com/qutheory/polymorphic.git", majorVersion: 0, minor: 1)
+.Package(url: "https://github.com/qutheory/polymorphic.git", majorVersion: x, minor: x)
 ```
