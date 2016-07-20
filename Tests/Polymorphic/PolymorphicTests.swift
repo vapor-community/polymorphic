@@ -1,13 +1,18 @@
-//
-
 import XCTest
 @testable import Polymorphic
 
-class PolymorphicTest: XCTestCase {
+class PolymorphicTests: XCTestCase {
     static var allTests: [(String, (PolymorphicTest) -> () throws -> Void)] {
         return [
-//            ("testIntegers", testIntegers),
-//            ("testUnsignedIntegers", testUnsignedIntegers),
+            ("testInt", testInt),
+            ("testUInt", testUInt),
+            ("testArray", testArray),
+            ("testObject", testObject),
+            ("testFloat", testFloat),
+            ("testDouble", testDouble),
+            ("testNull", testNull),
+            ("testBool", testBool),
+            ("testDefaults", testDefaults),
         ]
     }
 

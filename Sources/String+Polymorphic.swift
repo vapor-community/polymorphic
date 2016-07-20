@@ -1,5 +1,3 @@
-import Foundation
-
 extension String: Polymorphic {
     /**
         Determines whether or not the `String` is null.
@@ -73,8 +71,10 @@ extension String: Polymorphic {
         multiple entries.
     */
     public var array: [Polymorphic]? {
-        return components(separatedBy: ",")
-            .map { $0.trimmingCharacters(in: .whitespaces) }
+        return characters
+            .split(separator: ",")
+            .map { String($0) }
+            .map { $0.trimmedWhitespace() }
             .map { $0 as Polymorphic }
     }
 
@@ -84,5 +84,31 @@ extension String: Polymorphic {
     */
     public var object: [String : Polymorphic]? {
         return nil
+    }
+}
+
+extension String {
+    private func trimmedWhitespace() -> String {
+        var characters = self.characters
+
+        while characters.first?.isWhitespace == true {
+            characters.removeFirst()
+        }
+        while characters.last?.isWhitespace == true {
+            characters.removeLast()
+        }
+
+        return String(characters)
+    }
+}
+
+extension Character {
+    private var isWhitespace: Bool {
+        switch self {
+        case " ", "\t", "\n", "\r":
+            return true
+        default:
+            return false
+        }
     }
 }
