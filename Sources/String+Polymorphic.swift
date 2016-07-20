@@ -4,7 +4,7 @@ extension String: Polymorphic {
         Returns `true` if the `String` is equal to `"null"`.
     */
     public var isNull: Bool {
-        return self == "null"
+        return self.lowercased() == "null"
     }
 
     /**
@@ -16,9 +16,9 @@ extension String: Polymorphic {
     */
     public var bool: Bool? {
         switch lowercased() {
-        case "y", "1", "yes", "true":
+        case "y", "1", "yes", "t", "true":
             return true
-        case "n", "0", "no", "false":
+        case "n", "0", "no", "f", "false":
             return false
         default:
             return nil
@@ -50,6 +50,14 @@ extension String: Polymorphic {
     }
 
     /**
+         Attempts to convert the `String` to a `UInt`.
+         The conversion uses the `UInt(_: String)` initializer.
+    */
+    public var uint: UInt? {
+        return UInt(self)
+    }
+
+    /**
         Attempts to convert the `String` to a `String`.
         This always works.
     */
@@ -63,7 +71,11 @@ extension String: Polymorphic {
         multiple entries.
     */
     public var array: [Polymorphic]? {
-        return characters.split(separator: ",").map(String.init).map { $0 }
+        return characters
+            .split(separator: ",")
+            .map { String($0) }
+            .map { $0.trimmedWhitespace() }
+            .map { $0 as Polymorphic }
     }
 
     /**
@@ -72,5 +84,31 @@ extension String: Polymorphic {
     */
     public var object: [String : Polymorphic]? {
         return nil
+    }
+}
+
+extension String {
+    private func trimmedWhitespace() -> String {
+        var characters = self.characters
+
+        while characters.first?.isWhitespace == true {
+            characters.removeFirst()
+        }
+        while characters.last?.isWhitespace == true {
+            characters.removeLast()
+        }
+
+        return String(characters)
+    }
+}
+
+extension Character {
+    private var isWhitespace: Bool {
+        switch self {
+        case " ", "\t", "\n", "\r":
+            return true
+        default:
+            return false
+        }
     }
 }
