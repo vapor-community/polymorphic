@@ -2,19 +2,17 @@ import XCTest
 @testable import Polymorphic
 
 class PolymorphicTests: XCTestCase {
-    static var allTests: [(String, (PolymorphicTest) -> () throws -> Void)] {
-        return [
-            ("testInt", testInt),
-            ("testUInt", testUInt),
-            ("testArray", testArray),
-            ("testObject", testObject),
-            ("testFloat", testFloat),
-            ("testDouble", testDouble),
-            ("testNull", testNull),
-            ("testBool", testBool),
-            ("testDefaults", testDefaults),
-        ]
-    }
+    static var allTests = [
+        ("testInt", testInt),
+        ("testUInt", testUInt),
+        ("testArray", testArray),
+        ("testObject", testObject),
+        ("testFloat", testFloat),
+        ("testDouble", testDouble),
+        ("testNull", testNull),
+        ("testBool", testBool),
+        ("testDefaults", testDefaults),
+    ]
 
     func testInt() {
         let poly = "-123"
@@ -30,7 +28,7 @@ class PolymorphicTests: XCTestCase {
     }
 
     func testArray() {
-        let list = "oranges, apples, bananas, grapes"
+        let list = "oranges, apples , bananas, grapes"
         print(list.array)
         let fruits = list.array?.flatMap { $0.string } ?? []
         XCTAssert(fruits == ["oranges", "apples", "bananas", "grapes"])
@@ -88,9 +86,11 @@ class PolymorphicTests: XCTestCase {
             private var object: [String : Polymorphic]? { return nil }
         }
 
-        let a = Test(int: 42, double: 3.14159)
-        XCTAssert(a.uint == 42)
-        XCTAssert(a.float == 3.14159)
+        var a = Test(int: 42, double: 3.14159)
+        XCTAssertEqual(a.uint, 42)
+        XCTAssertEqual(a.float, 3.14159)
+        a.double = nil
+        XCTAssertEqual(a.float, nil)
 
         let b = Test(int: nil, double: nil)
         XCTAssert(b.uint == nil)

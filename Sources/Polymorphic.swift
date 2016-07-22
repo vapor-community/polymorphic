@@ -19,7 +19,11 @@ public protocol Polymorphic {
 
 extension Polymorphic {
     public var float: Float? {
-        return double.flatMap(Float.init)
+        guard let double = double else {
+            return nil
+        }
+
+        return Float(double)
     }
 
     public var uint: UInt? {
