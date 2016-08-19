@@ -76,14 +76,14 @@ class PolymorphicTests: XCTestCase {
 
     func testDefaults() {
         struct Test: Polymorphic {
-            private var int: Int?
-            private var double: Double?
+            var int: Int?
+            var double: Double?
 
-            private var isNull: Bool { return false }
-            private var bool: Bool? { return nil }
-            private var string: String? { return nil }
-            private var array: [Polymorphic]? { return nil }
-            private var object: [String : Polymorphic]? { return nil }
+            var isNull: Bool { return false }
+            var bool: Bool? { return nil }
+            var string: String? { return nil }
+            var array: [Polymorphic]? { return nil }
+            var object: [String : Polymorphic]? { return nil }
         }
 
         var a = Test(int: 42, double: 3.14159)

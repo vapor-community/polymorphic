@@ -88,7 +88,7 @@ extension String: Polymorphic {
 }
 
 extension String {
-    private func trimmedWhitespace() -> String {
+    func trimmedWhitespace() -> String {
         var characters = self.characters
 
         while characters.first?.isWhitespace == true {
@@ -103,7 +103,7 @@ extension String {
 }
 
 extension Character {
-    private var isWhitespace: Bool {
+    var isWhitespace: Bool {
         switch self {
         case " ", "\t", "\n", "\r":
             return true

@@ -41,7 +41,7 @@ Include the following in your package to use Polymorphic.
 
 |Polymorphic|Xcode|Swift|
 |:-:|:-:|:-:|
-|0.4.x|8.0 Beta **6**|DEVELOPMENT-SNAPSHOT-2016-08-15-a|
+|0.4.x|8.0 Beta **6**|DEVELOPMENT-SNAPSHOT-2016-08-18-a|
 |0.3.x|8.0 Beta **3**|DEVELOPMENT-SNAPSHOT-2016-07-20-qutheory|
 |0.2.x|7.3.x|DEVELOPMENT-SNAPSHOT-2016-06-06-a|
 |0.1.x|7.3.x|DEVELOPMENT-SNAPSHOT-2016-06-06-a|
