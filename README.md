@@ -1,6 +1,6 @@
 # Polymorphic
 
-![Swift](http://img.shields.io/badge/swift-v3.0--dev.08.15-brightgreen.svg)
+![Swift](http://img.shields.io/badge/swift-v3.0--dev.08.18-brightgreen.svg)
 [![Build Status](https://travis-ci.org/vapor/polymorphic.svg?branch=master)](https://travis-ci.org/vapor/polymorphic)
 [![CircleCI](https://circleci.com/gh/vapor/polymorphic.svg?style=shield)](https://circleci.com/gh/vapor/polymorphic)
 [![Code Coverage](https://codecov.io/gh/vapor/polymorphic/branch/master/graph/badge.svg)](https://codecov.io/gh/vapor/polymorphic)
