@@ -16,9 +16,9 @@ extension String: Polymorphic {
     */
     public var bool: Bool? {
         switch lowercased() {
-        case "y", "1", "yes", "t", "true":
+        case "y", "1", "yes", "t", "true", "on":
             return true
-        case "n", "0", "no", "f", "false":
+        case "n", "0", "no", "f", "false", "off":
             return false
         default:
             return nil
