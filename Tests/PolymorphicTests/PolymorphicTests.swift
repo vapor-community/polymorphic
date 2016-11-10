@@ -60,6 +60,7 @@ class PolymorphicTests: XCTestCase {
         XCTAssert("t".bool == true)
         XCTAssert("true".bool == true)
         XCTAssert("1".bool == true)
+        XCTAssert("on".bool == true)
 
 
         XCTAssert("n".bool == false)
@@ -67,6 +68,7 @@ class PolymorphicTests: XCTestCase {
         XCTAssert("f".bool == false)
         XCTAssert("false".bool == false)
         XCTAssert("0".bool == false)
+        XCTAssert("off".bool == false)
 
         XCTAssert("nothing".bool == nil)
         XCTAssert("to".bool == nil)
