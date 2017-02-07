@@ -11,6 +11,7 @@ public protocol Polymorphic {
     var string: String? { get }
     var array: [Polymorphic]? { get }
     var object: [String : Polymorphic]? { get }
+    var bytes: [UInt8]? { get }
 
     // Optional
     var float: Float? { get }
@@ -19,16 +20,11 @@ public protocol Polymorphic {
 
 extension Polymorphic {
     public var float: Float? {
-        guard let double = double else {
-            return nil
-        }
-
-        return Float(double)
+        return double.flatMap { Float($0) }
     }
 
     public var uint: UInt? {
-        guard let i = int else { return nil }
-        guard i >= 0 else { return nil }
+        guard let i = int, i >= 0 else { return nil }
         return UInt(i)
     }
 }

@@ -85,6 +85,13 @@ extension String: Polymorphic {
     public var object: [String : Polymorphic]? {
         return nil
     }
+
+    /**
+        Converts the string to a UTF8 array of bytes.
+    */
+    public var bytes: [UInt8]? {
+        return [UInt8](self.utf8)
+    }
 }
 
 extension String {
