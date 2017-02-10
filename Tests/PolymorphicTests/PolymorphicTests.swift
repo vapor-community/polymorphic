@@ -29,7 +29,6 @@ class PolymorphicTests: XCTestCase {
 
     func testArray() {
         let list = "oranges, apples , bananas, grapes"
-        print(list.array)
         let fruits = list.array?.flatMap { $0.string } ?? []
         XCTAssert(fruits == ["oranges", "apples", "bananas", "grapes"])
     }
@@ -86,6 +85,7 @@ class PolymorphicTests: XCTestCase {
             var string: String? { return nil }
             var array: [Polymorphic]? { return nil }
             var object: [String : Polymorphic]? { return nil }
+            var bytes: [UInt8]? { return nil }
         }
 
         var a = Test(int: 42, double: 3.14159)
@@ -99,5 +99,11 @@ class PolymorphicTests: XCTestCase {
 
         let c = Test(int: -123, double: nil)
         XCTAssert(c.uint == nil)
+    }
+
+    func testBytes() {
+        let expectation = [0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x2C, 0x20, 0x57, 0x6F, 0x72, 0x6C, 0x64, 0x20, 0xF0, 0x9F, 0x91, 0x8B] as [UInt8]
+        let input = "Hello, World 👋".bytes
+        XCTAssertEqual(expectation, input ?? [])
     }
 }

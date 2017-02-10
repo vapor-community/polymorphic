@@ -85,10 +85,17 @@ extension String: Polymorphic {
     public var object: [String : Polymorphic]? {
         return nil
     }
+
+    /**
+        Converts the string to a UTF8 array of bytes.
+    */
+    public var bytes: [UInt8]? {
+        return [UInt8](self.utf8)
+    }
 }
 
 extension String {
-    func trimmedWhitespace() -> String {
+    fileprivate func trimmedWhitespace() -> String {
         var characters = self.characters
 
         while characters.first?.isWhitespace == true {
@@ -103,7 +110,7 @@ extension String {
 }
 
 extension Character {
-    var isWhitespace: Bool {
+    fileprivate var isWhitespace: Bool {
         switch self {
         case " ", "\t", "\n", "\r":
             return true
